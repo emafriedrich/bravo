@@ -85,6 +85,11 @@ date_from: #{ date_from.inspect }, date_to: #{ date_to.inspect }, invoice_type: 
     # Sets up the request body for the authorisation
     # @return [Hash] returns the request body as a hash
     #
+
+    def invoice_c?
+      Bravo::BILL_TYPE_C.values.include? Bravo::BILL_TYPE[Bravo.own_iva_cond][iva_condition][invoice_type]  
+    end
+
     def setup_bill
       fecaereq = setup_request_structure
 
@@ -92,7 +97,11 @@ date_from: #{ date_from.inspect }, date_to: #{ date_to.inspect }, invoice_type: 
 
       detail['DocNro']    = document_number
       detail['ImpNeto']   = net.to_f
-      detail['ImpIVA']    = iva_sum
+      if invoice_c? == false
+        fecaereq['FeCAEReq']['FeDetReq']['FECAEDetRequest'].delete('Iva')
+      else
+        detail['ImpIVA']    = iva_sum
+      end
       detail['ImpTotal']  = total
       detail['CbteDesde'] = detail['CbteHasta'] = Bravo::Reference.next_bill_number(bill_type)
 
