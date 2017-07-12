@@ -97,7 +97,7 @@ date_from: #{ date_from.inspect }, date_to: #{ date_to.inspect }, invoice_type: 
 
       detail['DocNro']    = document_number
       detail['ImpNeto']   = net.to_f
-      if invoice_c? == false
+      if invoice_c?
         fecaereq['FeCAEReq']['FeDetReq']['FECAEDetRequest'].delete('Iva')
       else
         detail['ImpIVA']    = iva_sum
