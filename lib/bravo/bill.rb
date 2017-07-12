@@ -146,8 +146,10 @@ date_from: #{ date_from.inspect }, date_to: #{ date_to.inspect }, invoice_type: 
 
       request_header  = body['FeCAEReq']['FeCabReq'].underscore_keys.symbolize_keys
       request_detail  = body['FeCAEReq']['FeDetReq']['FECAEDetRequest'].underscore_keys.symbolize_keys
-
-      request_detail.merge!(request_detail.delete(:iva)['AlicIva'].underscore_keys.symbolize_keys)
+      
+      if invoice_c? == false
+        request_detail.merge!(request_detail.delete(:iva)['AlicIva'].underscore_keys.symbolize_keys)
+      end
 
       response_hash = { header_result: response_header.delete(:resultado),
                         authorized_on: response_header.delete(:fch_proceso),
