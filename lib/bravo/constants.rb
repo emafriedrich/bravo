@@ -78,6 +78,12 @@ module Bravo
       consumidor_final: 00,
       exento: 00,
       responsable_monotributo: 00
+    },
+    monotributo: {
+      responsable_inscripto: 00,
+      consumidor_final: 00,
+      exento: 00,
+      responsable_monotributo: 00
     }
   }
 
@@ -118,6 +124,12 @@ module Bravo
       exento:                  BILL_TYPE_B,
       responsable_monotributo: BILL_TYPE_B },
     exento: {
+      responsable_inscripto:   BILL_TYPE_C,
+      consumidor_final:        BILL_TYPE_C,
+      exento:                  BILL_TYPE_C,
+      responsable_monotributo: BILL_TYPE_C 
+    }, 
+    monotributo: {
       responsable_inscripto:   BILL_TYPE_C,
       consumidor_final:        BILL_TYPE_C,
       exento:                  BILL_TYPE_C,
