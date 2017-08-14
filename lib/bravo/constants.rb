@@ -79,7 +79,7 @@ module Bravo
       exento: 00,
       responsable_monotributo: 00
     },
-    monotributo: {
+    responsable_monotributo: {
       responsable_inscripto: 00,
       consumidor_final: 00,
       exento: 00,
