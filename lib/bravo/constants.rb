@@ -129,7 +129,7 @@ module Bravo
       exento:                  BILL_TYPE_C,
       responsable_monotributo: BILL_TYPE_C 
     }, 
-    monotributo: {
+    responsable_monotributo: {
       responsable_inscripto:   BILL_TYPE_C,
       consumidor_final:        BILL_TYPE_C,
       exento:                  BILL_TYPE_C,
